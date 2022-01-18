@@ -29,6 +29,7 @@
     afterUpdate(calculateColor);
 
     function clickHandler() {
+        alert("BING BONG");
         dispatch('keyEvent', {key: letter});
     }
 </script>
