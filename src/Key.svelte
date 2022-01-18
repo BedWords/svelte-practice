@@ -29,7 +29,6 @@
     afterUpdate(calculateColor);
 
     function clickHandler() {
-        alert($test);
         dispatch('keyEvent', {key: letter});
     }
 </script>
