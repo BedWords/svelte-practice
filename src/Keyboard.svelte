@@ -1,16 +1,16 @@
 <script>
-    import Key from './Key.svelte';
-    import {createEventDispatcher} from 'svelte';
-    export let length;
+	import Key from './Key.svelte'
+	import { createEventDispatcher } from 'svelte'
+	export let length
 
     const dispatch = createEventDispatcher();
     let guess = "";
 
-     let rows = [
-        ['q','w','e','r','t','y','u','i','o','p'],
-        ['a','s','d','f','g','h','j','k','l' ],
-        ['ENTER','z','x','c','v','b','n','m','<-']
-    ];
+	let rows = [
+		['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+		['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+		['ENTER', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '<-']
+	]
 
     function eventHandler(event){
         let key = event.detail.key;
@@ -20,24 +20,23 @@
         else{ guess += key; }
     }
 
-    function submit(submission){
-        if (guess.length!=length){
-            alert('GUESS MUST BE ' + length + ' LETTERS LONG!');
-            guess = '';
-            return;
-        }
-        dispatch('submitEvent', {submission: guess});
-        guess = "";
-    }
+	function submit(submission) {
+		if (guess.length != length) {
+			alert('GUESS MUST BE ' + length + ' LETTERS LONG!')
+			guess = ''
+			return
+		}
+		dispatch('submitEvent', { submission: guess })
+		guess = ''
+	}
 
-    function backspace(){
-       guess = guess.slice(0,guess.length-1);
-    }
+	function backspace() {
+		guess = guess.slice(0, guess.length - 1)
+	}
 </script>
 
-
 <div class="kb">
-WORD: {guess}
+	WORD: {guess}
 
 
 {#each rows as row}
@@ -50,10 +49,16 @@ WORD: {guess}
 </div>
 
 <style>
-    div.kb {
-        display: block;
-        max-width: 25%;
-        margin: auto;
-        align-items:center;
-    }
+	div.kb {
+		max-width: 25%;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+	}
+
+	p.row {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
 </style>
