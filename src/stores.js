@@ -1,3 +1,4 @@
 import { writable } from 'svelte/store';
 
-export const test = writable('testing');
+export const correctWord = writable('testing');  //autosubscribe with $correctWordStore to use this variable
+export const guesses = writable([]);

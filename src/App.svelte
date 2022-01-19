@@ -1,13 +1,13 @@
 <script>
 	//import Key from './Key.svelte';
 	import Game from "./Game.svelte";
+
 	export let name;
-	let correctWord = 'midna';
 </script>
 
 <main>
-	<h1>Cello {name}!</h1>
-	<Game {correctWord}/>
+	<h1>Bello {name}!</h1>
+	<Game/>
 </main>
 
 

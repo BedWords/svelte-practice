@@ -3,9 +3,6 @@
     import {createEventDispatcher} from 'svelte';
     export let length;
 
-    export let guesses;
-    export let correctWord;
-
     const dispatch = createEventDispatcher();
     let guess = "";
 
@@ -18,7 +15,7 @@
     function eventHandler(event){
         let key = event.detail.key;
         
-        if(key=='ENTER'){ submit(guess); }
+        if(key=='ENTER'){ submit(guess);}
         else if(key=='<-'){ backspace(); }
         else{ guess += key; }
     }
@@ -46,7 +43,7 @@ WORD: {guess}
 {#each rows as row}
     <p>
     {#each row as letter}
-        <Key {letter} {guesses} {correctWord} on:keyEvent={eventHandler}/>
+        <Key {letter} on:keyEvent={eventHandler}/>
     {/each}
     </p>
 {/each} 
