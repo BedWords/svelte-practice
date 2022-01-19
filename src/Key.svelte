@@ -29,7 +29,7 @@
     afterUpdate(calculateColor);
 
     function clickHandler() {
-        alert("ARGHHHHHH");
+        alert("ehhhhhh?");
         dispatch('keyEvent', {key: letter});
     }
 </script>
